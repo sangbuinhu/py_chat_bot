@@ -1,6 +1,6 @@
 import traceback
 
-from utils import console
+from src.utils import console
 
 
 def show_log(error: Exception):
