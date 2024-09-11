@@ -21,9 +21,10 @@ def check_ma_khach_hang(ma_kh, ten_kh):
         # Parse the HTML content
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # text_no = soup.find('p', class_='ttl').get_text()
-        text_info = soup.find('p', class_='info').get_text()
+        texts_info = soup.findAll('p', class_='info')
         text_no = "LỊCH CÚP ĐIỆN: " + ten_kh
-        return text_no + text_info
+
+        # print(texts_info, text_no)
+        return text_no, texts_info
     except Exception:
         return None
