@@ -6,7 +6,7 @@ from src.config import constants
 from src.utils import log_util
 
 
-def send_message(chat_id: str, message: str) -> bool:
+def send_message(chat_id: str, message: str, token: str) -> bool:
     """Send a text message to a Telegram chat.
 
     Args:
@@ -17,7 +17,7 @@ def send_message(chat_id: str, message: str) -> bool:
         True if the message was sent successfully, False otherwise.
     """
     try:
-        url = f"{constants.TELEGRAM_BOT_BASE_URL}/sendMessage"
+        url = f"{constants.TELEGRAM_BOT_BASE_URL}{token}/sendMessage"
         payload = {"chat_id": chat_id, "text": message}
         response = requests.post(url, json=payload, timeout=10)
         response.raise_for_status()
