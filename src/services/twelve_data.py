@@ -6,7 +6,7 @@ import requests
 from src.config import constants
 from src.utils import log_util
 
-_SYMBOLS = "USD/VND,XAU/USD,JPY/USD"
+_SYMBOLS = "USD/VND,XAU/USD,JPY/USD,BTC/USD"
 
 
 def get_prices_world() -> str | None:
@@ -26,6 +26,7 @@ def get_prices_world() -> str | None:
         usd_vnd = float(data["USD/VND"]["price"])
         xau_usd = float(data["XAU/USD"]["price"])
         jpy_usd = float(data["JPY/USD"]["price"])
+        btc_usd = float(data["BTC/USD"]["price"])
 
         xau_vnd = xau_usd * usd_vnd
         jpy_vnd = jpy_usd * usd_vnd
@@ -41,6 +42,7 @@ def get_prices_world() -> str | None:
             f"{'JPY/VND:':<12} {fmt(jpy_vnd):>23} VND\n"
             f"{'XAU/USD:':<12} {fmt(xau_usd):>22} USD\n"
             f"{'XAU/VND:':<12} {fmt(xau_vnd):>15} VND\n"
+            f"{'BTC/USD:':<12} {fmt(btc_usd):>21} USD\n"
         )
 
         print(response)
