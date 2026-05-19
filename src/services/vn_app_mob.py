@@ -51,10 +51,11 @@ def get_price_gold() -> str | None:
         response = (
             f"{'--' * 30}\n"
             f"VÀNG SJC ({updated_at})\n"
+            f"Đơn vị tính: VNĐ / lượng\n"
             f"{'--' * 30}\n"
-            f"{'Loại':<10} {'Mua':>10} {'Bán':>10}\n"
+            f"{'Loại':<10} {'Mua':>3} {'Bán':>20}\n"
             f"{'--' * 30}\n"
-            f"{'1 Chỉ:':<15} {fmt(item['buy_1c']):>8} {fmt(item['sell_1c']):>11}\n"
+            f"{'1C:':<10} {fmt(item['buy_1c']):>8} {fmt(item['sell_1c']):>14}\n"
         )
 
         return response
